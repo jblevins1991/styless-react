@@ -1,14 +1,23 @@
 import * as React from "react";
 import classNames from "classnames";
+import Link from "../Link/Link";
+import ListItem from "../ListItem/ListItem";
+import OrderedList from "../OrderedList/OrderedList";
+
+type Crumb = {
+    label: string;
+    url: string;
+};
 
 interface BreadcrumbProps {
     className?: string;
+    crumbs?: Crumb[];
     id?: string;
-    url: string;
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
     className,
+    crumbs,
     id,
 }) => {
     return <nav
@@ -20,7 +29,21 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
         }
         id={`${id}-breadcrumb-wrapper`}
     >
-        {}
+        <OrderedList>
+            {
+                crumbs.map((crumb: Crumb, index: number) => {
+                    return <ListItem>
+                        {
+                            index === crumbs.length - 1
+                                ? crumb.label
+                                : <Link href={crumb.url}>
+                                    {crumb.label}
+                                </Link>
+                        }
+                    </ListItem>;
+                })
+            }
+        </OrderedList>
     </nav>;
 };
 

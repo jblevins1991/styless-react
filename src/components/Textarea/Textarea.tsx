@@ -16,10 +16,27 @@ import {
 type TextareaOmitProps = 'name';
 
 interface TextareaProps extends Omit<React.HTMLAttributes<HTMLTextAreaElement>, TextareaOmitProps> {
+    /**
+     * Makes the button non-interactive.
+     * 
+     * Default value: false
+     */
     disabled?: boolean;
+    /**
+     * A string representing the error text.
+     */
     error?: string;
+    /**
+     * A string representing the hint text.
+     */
     hint?: string;
+    /**
+     * A string representing the label text.
+     */
     label: string;
+    /**
+     * The name of the textarea component.
+     */
     name: string;
 }
 
@@ -39,7 +56,6 @@ const Textarea = React.forwardRef<
     onFocus,
     ...props
 }, ref) => {
-    console.log('disabled', disabled);
     const id = React.useId();
 
     const handleBlur = useCreateBlurHandler(

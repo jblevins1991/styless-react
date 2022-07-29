@@ -4,11 +4,16 @@ import Button from "./Button";
 
 export default {
     title: 'Components/Button',
-    component: Button
+    component: Button,
+    argTypes: {
+        onBlur: { action: true },
+        onClick: { action: true },
+        onFocus: { action: true }
+    }
 };
 
-export const DefualtButton = () => {
-    return <Button>
+export const DefualtButton = (args) => {
+    return <Button {...args}>
         Click me
     </Button>
 }

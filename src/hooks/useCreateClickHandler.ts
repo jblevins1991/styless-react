@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const useCreateClickHandler = <ElementType>(
     onClick: (event: React.MouseEvent<ElementType>) => void,
-    disabled: boolean
+    disabled = false
 ) => {
     return (event: React.MouseEvent<ElementType>) => {
         if (disabled) return;

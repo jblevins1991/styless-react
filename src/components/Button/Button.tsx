@@ -6,6 +6,7 @@ import {
     useCreateClickHandler,
     useCreateFocusHandler
 } from '../../hooks';
+
 import { color, size } from '../../types/commonProps';
 
 type ButtonOmitProps = 'size';
@@ -16,7 +17,7 @@ interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, Butt
      * 
      * Default value: 'primary'
      */
-    color?: color;
+    color?: color | 'success' | 'error';
     /**
      * Makes the button non-interactive.
      * 
@@ -35,11 +36,16 @@ interface ButtonProps extends Omit<React.HTMLAttributes<HTMLButtonElement>, Butt
      * Default value: 'medium'
      */
     size?: size;
+    /**
+     * The behavior of the button when it is clicked in a form.
+     * 
+     * Default value: 'button'
+     */
     type?: 'button' | 'submit' | 'reset';
     /**
      * Controls the style of the button.
      * 
-     * Default value: 'solid'
+     * Default value: 'filled'
      */
     variant?: 'filled' | 'outlined' | 'text';
 }
@@ -58,15 +64,15 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
     variant = 'filled',
     ...props
 }, ref) => {
-    const handleBlur = useCreateBlurHandler((event: React.FocusEvent<HTMLButtonElement>) => {
+    const handleBlur = useCreateBlurHandler<HTMLButtonElement>((event: React.FocusEvent<HTMLButtonElement>) => {
         onBlur?.(event);
     }, disabled);
     
-    const handleClick = useCreateClickHandler((event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClick = useCreateClickHandler<HTMLButtonElement>((event: React.MouseEvent<HTMLButtonElement>) => {
         onClick?.(event);
     }, disabled);
     
-    const handleFocus = useCreateFocusHandler((event: React.FocusEvent<HTMLButtonElement>) => {
+    const handleFocus = useCreateFocusHandler<HTMLButtonElement>((event: React.FocusEvent<HTMLButtonElement>) => {
         onFocus?.(event);
     }, disabled);
 
@@ -80,10 +86,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(({
             variant,
             className
         )}
+        disabled={disabled}
         onBlur={handleBlur}
         onClick={handleClick}
         onFocus={handleFocus}
-        disabled={disabled}
         type={type}
         ref={ref}
     >

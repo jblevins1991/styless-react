@@ -1,21 +1,23 @@
 {
   "name": "styless-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A component library with no opinionation in styles. The perfect foundation to build your design system with.",
   "main": "dist/designless-system.cjs.js",
   "browser": "dist/designless-system.umd.js",
   "module": "dist/designless-system.esm.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "repository": "git@github.com:jblevins1991/styless-react.git",
-  "author": "Joshua Blevins <josh.adam.blevins@gmail.com>",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "engineStrict": true,
+  "author": "Joshua Blevins <josh.adam.blevins@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "rollup -c rollup.config.js",
-    "compile": "tsc -b",
-    "publish:gh": "yarn publish --registry=https://npm.pkg.github.com --verbose",
     "test": "jest -c jest.config.js",
     "lint": "eslint ./src -c .eslintrc",
     "storybook": "start-storybook -p 6006",
@@ -34,6 +36,7 @@
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
     "@storybook/addon-links": "^6.5.9",
+    "@storybook/addon-queryparams": "^6.2.9",
     "@storybook/builder-webpack4": "^6.5.9",
     "@storybook/manager-webpack4": "^6.5.9",
     "@storybook/mdx2-csf": "^0.0.3",

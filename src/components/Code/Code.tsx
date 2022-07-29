@@ -7,9 +7,21 @@ import {
 
 interface CodeProps {
     children?: string;
+    /**
+     * Adds a class to the component.
+     */
     className?: string;
+    /**
+     * The icon used for the copy button.
+     */
     copyIcon: React.ReactNode;
+    /**
+     * Adds an id to the component.
+     */
     id: string;
+    /**
+     * The programming language used within this code block.
+     */
     language?: string;
 }
 

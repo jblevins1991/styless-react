@@ -8,10 +8,10 @@
  import Textarea from './Textarea';
 
  const eventHandlers = {
-    onBlur: console.log,
-    onChange: console.log,
-    onClick: console.log,
-    onFocus: console.log
+    onBlur: () => {},
+    onChange: () => {},
+    onClick: () => {},
+    onFocus: () => {}
  }
 
  describe('Textarea Component', () => {

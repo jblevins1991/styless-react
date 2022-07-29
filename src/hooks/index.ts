@@ -26,3 +26,6 @@ export {
     default as useCreateFocusHandler
 } from './useCreateFocusHandler';
 
+export {
+    default as useListFocusTrap
+} from './useListFocusTrap';

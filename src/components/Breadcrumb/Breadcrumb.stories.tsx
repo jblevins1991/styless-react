@@ -1,12 +1,27 @@
-// import * as React from 'react';
+import * as React from 'react';
 
-// import Breadcrumb from "./Breadcrumb";
+import Breadcrumb from "./Breadcrumb";
 
-// export default {
-//     title: 'Components/Breadcrumbs',
-//     component: Breadcrumb
-// };
+export default {
+    title: 'Components/Breadcrumbs',
+    component: Breadcrumb
+};
 
-// export const DefaultBreadcrumb = () => {
-//     return <Breadcrumb />
-// }
+export const DefaultBreadcrumb = () => {
+    return <Breadcrumb
+        crumbs={[
+            {
+                label: 'one',
+                url: ''
+            },
+            {
+                label: 'two',
+                url: ''
+            },
+            {
+                label: 'three',
+                url: ''
+            }
+        ]}
+    />;
+}

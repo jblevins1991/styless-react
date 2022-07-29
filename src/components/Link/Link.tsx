@@ -9,11 +9,13 @@ import {
 
 interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
     /**
-     * 
+     * A URL to navigate to.
      */
     href: string;
     /**
+     * Controls the style of the link.
      * 
+     * Default value: 'link'
      */
     variant?: 'link' | 'button';
 }

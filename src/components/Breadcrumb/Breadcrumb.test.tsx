@@ -11,7 +11,22 @@
  describe('Breadcrumb Component', () => {
     it('should render', async () => {
         render(
-            <Breadcrumb url='' />
+            <Breadcrumb
+                crumbs={[
+                    {
+                        label: 'one',
+                        url: ''
+                    },
+                    {
+                        label: 'two',
+                        url: ''
+                    },
+                    {
+                        label: 'three',
+                        url: ''
+                    }
+                ]}
+            />
         );
 
         expect(screen.getByRole('navigation')).toBeInTheDocument();

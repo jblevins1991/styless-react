@@ -46,7 +46,7 @@ export default [
     {
         input: "./src/index.ts",
         output: [{
-            file: pkg.typings,
+            file: pkg.types,
             format: "es"
         }],
         plugins: [
